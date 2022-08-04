@@ -1,0 +1,36 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+        metosin/reitit {:mvn/version "0.5.18"}
+        metosin/muuntaja {:mvn/version "0.6.8"}
+        http-kit/http-kit {:mvn/version "2.7.0-alpha1"}
+        com.layerware/hugsql {:mvn/version "0.5.3"}
+        scicloj/tablecloth {:mvn/version "6.090"}
+        techascent/tech.ml.dataset {:mvn/version "6.091"}
+        techascent/tech.ml.dataset.sql {:mvn/version "6.046-01"}
+        clj-http/clj-http {:mvn/version "3.12.3"}
+        com.taoensso/timbre {:mvn/version "5.2.1"}
+        org.clojure/tools.trace {:mvn/version "0.7.11"}
+        org.xerial/sqlite-jdbc {:mvn/version "3.36.0.3"}
+        org.postgresql/postgresql {:mvn/version "42.4.0"}
+        seancorfield/next.jdbc {:mvn/version "1.2.659"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "iwrotesomecode.dataingest"]}
+  :run-x {:ns-default iwrotesomecode.dataingest
+          :exec-fn -main
+          :exec-args {}}
+  :cider {:extra-deps {nrepl/nrepl {:mvn/version "0.9.0"}
+                       cider/cider-nrepl {:mvn/version "0.28.5"}
+                       refactor-nrepl/refactor-nrepl {:mvn/version "3.5.4"}}
+          :main-opts ["-m" "nrepl.cmdline"
+                      "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
+                      "-i"]}
+  :build {:deps {io.github.seancorfield/build-clj
+                 {:git/tag "v0.6.3" :git/sha "9b8e09b"
+                  ;; since we're building an app uberjar, we do not
+                  ;; need deps-deploy for clojars.org deployment:
+                  :deps/root "slim"}}
+          :ns-default build}
+  :test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
+                      io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}}}}
