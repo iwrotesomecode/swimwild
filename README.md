@@ -6,7 +6,7 @@ Migration of https://swim.josephdumont.com to Clojure/script, from SQLite -> Pos
 
 TODO: Precipitation data not yet live, conversion from Express to Clojure backend is in its first steps, not yet begun moving from raw leaflet to react-leaflet and helix (reagent? uix?). 
 
-
+![Screenshot of app featuring Bay Area with water sampling locations](swim.png)
 <!-- ## Installation -->
 
 <!-- Download from https://github.com/iwrotesomecode/swimwild -->
