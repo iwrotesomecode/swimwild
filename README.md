@@ -2,7 +2,7 @@
 
 Migration of https://swim.josephdumont.com to Clojure/script, from SQLite -> PostgreSQL/PostGIS, incorporating precipitation data and analysis of time-series and spatial correlations.
 
-`src/iwrotesomecode/dataingest.clj` is where most functionality is fleshed out. It downloads and processes data from California State data repositories as in meant to be a daily update. The current iteration from the website runs on cron job. It currently updates a SQLite database. 
+`src/iwrotesomecode/dataingest.clj` is where most functionality is fleshed out. It downloads and processes data from California State data repositories and is meant to be a daily update. The current iteration from the website runs on cron job. It currently updates a SQLite database. 
 
 TODO: Precipitation data not yet live, conversion from Express to Clojure backend is in its first steps, not yet begun moving from raw leaflet to react-leaflet and helix (reagent? uix?). 
 
