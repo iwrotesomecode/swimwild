@@ -333,7 +333,7 @@
         end (. (LocalDate/now) minusDays 1)]
     (debug (str "Gathering data from " (count stations) " stations"))
     (for [station stations]
-      ;; start from either last date in db, or "2020-01-01" if no record (though it will probably remain null)
+      ;; start from either day after last date in db, or "2020-01-01" if no record (though it will probably remain null)
       (let [start (spy :debug (or (-> (jdbc/execute! ds ["select DATE from Precipitation where STATION_ID=? order by DATE desc limit 1;" station])
                                       (first)
                                       (:Precipitation/DATE)
